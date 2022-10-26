@@ -34,4 +34,12 @@ class TestCreateBankAccount(unittest.TestCase):
         piate_konto= Konto("Dariuszpiec", "Januszewskipiec", "02315678999", "PROM_ABC")
         self.assertEqual(piate_konto.saldo, 50, "Saldo powinno sie rownac 50 dla osob z dobrym kodem i urodzonych po 1960!")
 
+        
+        szoste_konto= Konto("Dariuszszesc", "Januszewskiszesc", "02315678999", "PROMs_ABC")
+        self.assertEqual(szoste_konto.saldo, 0, "Saldo powinno sie rownac 0 dla osob ze zlym kodem i urodzonych po 1960!")
+
+        
+        siodme_konto= Konto("Dariuszsiedem", "Januszewskisiedem", "44045678999", "PROMs_ABC")
+        self.assertEqual(siodme_konto.saldo, 0, "Saldo powinno sie rownac 0 dla osob ze zlym kodem i urodzonych przed 1960!")
+
     #tutaj proszę dodawać nowe testy
