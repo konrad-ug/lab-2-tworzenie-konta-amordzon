@@ -18,10 +18,10 @@ class TestCreateBankAccount(unittest.TestCase):
         self.assertEqual(len(pierwsze_konto.pesel), 11, "Nieprawidłowa długość peselu")
 
         drugie_konto= Konto("Dariuszdwa", "Januszewskidwa", "12345678999")
-        #self.assertEqual(len(drugie_konto.pesel), "Niepoprawny pesel!", "Pesel jest poprawny!")
+        self.assertEqual(drugie_konto.pesel, "Niepoprawny pesel!", "Pesel jest poprawny!")
 
         #kod
-        trzecie_konto= Konto("Dariusztrzy", "Januszewskitrzy", "12345678999", "PROM_ABC")
+        trzecie_konto= Konto("Dariusztrzy", "Januszewskitrzy", "12325678999", "PROM_ABC")
         self.assertEqual(trzecie_konto.saldo, 50, "Bledny kod promocyjny!")
 
         czwarte_konto= Konto("Dariuszcztery", "Januszewskicztery", "12345678999", "PRddddM_ABC")
