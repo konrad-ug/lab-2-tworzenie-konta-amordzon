@@ -1,8 +1,8 @@
 class Konto:
-    def __init__(self, imie, nazwisko, pesel, saldo, prom=None):
+    def __init__(self, imie, nazwisko, pesel, prom=None):
         self.imie = imie
         self.nazwisko = nazwisko
-        self.saldo = saldo
+        self.saldo = 0
         self.check_pesel(pesel)
         self.check_prom(prom)
 
