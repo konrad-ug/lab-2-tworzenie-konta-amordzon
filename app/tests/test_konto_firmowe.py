@@ -37,3 +37,21 @@ class TestCreateBankAccount(unittest.TestCase):
         szoste_konto.zaksieguj_przelew_przychodzacy(200)
         self.assertEqual(szoste_konto.saldo, 600-100+200, "Nie udało się wykonać operacji!")
     
+    def test_przelew_ekspresowy(self):
+        siodme_konto=KontoFirmowe("Firma", "123456789")
+        siodme_konto.saldo=600
+        siodme_konto.przelew_ekspresowy(100)
+        self.assertEqual(siodme_konto.saldo, 600-100-5, "Nie udało się wykonać przelewu ekspresowego!")
+
+    def test_przelew_ekspresowy_minus(self):
+        osme_konto=KontoFirmowe("Firma", "123456789")
+        osme_konto.saldo=100
+        osme_konto.przelew_ekspresowy(100)
+        self.assertEqual(osme_konto.saldo, 100-100-5, "Nie udało się wykonać przelewu ekspresowego!")
+    
+    def test_przelew_ekspresowy_blad(self):
+        dziewiate_konto=KontoFirmowe("Firma", "123456789")
+        dziewiate_konto.saldo=50
+        dziewiate_konto.przelew_ekspresowy(100)
+        self.assertEqual(dziewiate_konto.saldo, 50-100-5, "Nie udało się wykonać przelewu ekspresowego!")
+    

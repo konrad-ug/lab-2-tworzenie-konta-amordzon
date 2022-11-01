@@ -7,9 +7,12 @@ class KontoFirmowe(Konto):
         self.validateNIP(NIP)
 
     def validateNIP(self, NIP):
-        if(len(NIP)==10):
+        if(len(NIP)==10 and NIP.isdigit()):
             self.NIP=NIP
         else:
             self.NIP="Niepoprawny NIP!"
+
+    def przelew_ekspresowy(self, kwota, oplata=5):
+        super().przelew_ekspresowy(kwota,oplata)
 
     
