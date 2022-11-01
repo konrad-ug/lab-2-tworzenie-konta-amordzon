@@ -7,7 +7,7 @@ class Konto:
     def zaksieguj_przelew_przychodzacy(self, ile):
         self.saldo+=ile
 
-    def przelew_ekspresowy(self, kwota, oplata=1):
+    def przelew_ekspresowy(self, kwota, oplata):
         if(self.saldo - kwota - oplata >= -oplata):
             self.saldo -= (kwota + oplata)
         else:
