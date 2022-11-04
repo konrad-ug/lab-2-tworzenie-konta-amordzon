@@ -8,7 +8,7 @@ class Konto:
         self.saldo+=ile
 
     def przelew_ekspresowy(self, kwota, oplata):
-        if(self.saldo - kwota - oplata >= -oplata):
+        if(self.saldo >= kwota):
             self.saldo -= (kwota + oplata)
         else:
             self.saldo = self.saldo
