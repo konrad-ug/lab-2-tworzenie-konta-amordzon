@@ -12,7 +12,7 @@ class KontoFirmowe(Konto):
         else:
             self.NIP="Niepoprawny NIP!"
 
-    def przelew_ekspresowy(self, kwota, oplata=5):
-        super().przelew_ekspresowy(kwota,oplata)
+    def przelew_ekspresowy(self, kwota):
+        super().przelew_ekspresowy(kwota,5)
 
     

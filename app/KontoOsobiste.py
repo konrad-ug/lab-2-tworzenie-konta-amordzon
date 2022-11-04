@@ -18,5 +18,5 @@ class KontoOsobiste(Konto):
         if(prom!=None and prom.startswith('PROM_') and len(prom)==8 and ( int(self.pesel[:2])>60 or (int(self.pesel[2:4])>20 and int(self.pesel[2:4])<33))):
             self.saldo=50
 
-    def przelew_ekspresowy(self, kwota, oplata=1):
-        super().przelew_ekspresowy(kwota,oplata)
+    def przelew_ekspresowy(self, kwota):
+        super().przelew_ekspresowy(kwota, 1)
