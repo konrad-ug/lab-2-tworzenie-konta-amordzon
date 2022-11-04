@@ -19,7 +19,7 @@ class TestCreateBankAccount(unittest.TestCase):
         konto10=KontoOsobiste("Dariusz", "Januszewski", "12345678999")
         konto10.saldo=50
         konto10.zaksieguj_przelew_wychodzacy(100)
-        self.assertEqual(konto10.saldo, 50 - 100, "Nie ma wystarczająco środków!")
+        self.assertEqual(konto10.saldo, 50 , "Przy niewystarczajacych srodkach powinno zostac tyle samo co wczesniej!")
 
     def test_seria_przelewow(self):
         konto11=KontoOsobiste("Dariusz", "Januszewski", "12345678999")
@@ -44,4 +44,4 @@ class TestCreateBankAccount(unittest.TestCase):
         konto12=KontoOsobiste("Dariusz", "Januszewski", "12345678999")
         konto12.saldo=50
         konto12.przelew_ekspresowy(100)
-        self.assertEqual(konto12.saldo, 50-100-1, "Nie udało się wykonać przelewu ekspresowego!")
+        self.assertEqual(konto12.saldo, 50, "Przy nieudanym przelewie powinno wynosic 50!")

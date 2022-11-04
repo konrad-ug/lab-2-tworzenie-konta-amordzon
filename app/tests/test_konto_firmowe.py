@@ -6,11 +6,11 @@ class TestCreateBankAccount(unittest.TestCase):
 
     def test_tworzenie_konta_poprawnyNIP(self):
         pierwsze_konto = KontoFirmowe("Firma", "1234567899")
-        self.assertEqual(pierwsze_konto.NIP, "Niepoprawny NIP!", "Udało się utworzyć konto")
+        self.assertEqual(pierwsze_konto.NIP, "1234567899", "NIP nie zostal zapisany")
     
     def test_tworzenie_konta_niepoprawnyNIP(self):
         drugie_konto = KontoFirmowe("Firma", "123456789")
-        self.assertEqual(drugie_konto.NIP, "123456789", "Nie udało się utworzyć konta!")
+        self.assertEqual(drugie_konto.NIP, "Niepoprawny NIP!", "Przy podaniu niepoprawnego nipu wartosc nip powinna wynosic niepprawny nip")
     
     def test_przelew_wychodzacy_wystarczajace_srodki(self):
         trzecie_konto = KontoFirmowe("Firma", "123456789")
@@ -28,7 +28,7 @@ class TestCreateBankAccount(unittest.TestCase):
         piate_konto = KontoFirmowe("Firma", "123456789")
         piate_konto.saldo=50
         piate_konto.zaksieguj_przelew_wychodzacy(100)
-        self.assertEqual(piate_konto.saldo, 50 - 100, "Nie ma wystarczająco środków!")
+        self.assertEqual(piate_konto.saldo, 50, "Przy niewystarczjacej ilosci srodkow kwota powinna zostac taka sama!")
 
     def test_seria_przelewow(self):
         szoste_konto=KontoFirmowe("Firma", "123456789")
@@ -53,5 +53,5 @@ class TestCreateBankAccount(unittest.TestCase):
         dziewiate_konto=KontoFirmowe("Firma", "123456789")
         dziewiate_konto.saldo=50
         dziewiate_konto.przelew_ekspresowy(100)
-        self.assertEqual(dziewiate_konto.saldo, 50-100-5, "Nie udało się wykonać przelewu ekspresowego!")
+        self.assertEqual(dziewiate_konto.saldo, 50, "Przy nieudanym przelewie kwota powinna zostac taka sama!")
     
