@@ -2,11 +2,13 @@ from .Konto import Konto
 
 class KontoOsobiste(Konto):
     def __init__(self, imie, nazwisko, pesel, prom=None):
+        super().__init__()
         self.imie = imie
         self.nazwisko = nazwisko
         self.saldo = 0
         self.check_pesel(pesel)
         self.check_prom(prom)
+        self.historia=[]
 
     def check_pesel(self,pesel):
         if(len(pesel)!=11 or not pesel.isdigit()):

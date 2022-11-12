@@ -2,10 +2,11 @@ from .Konto import Konto
 
 class KontoFirmowe(Konto):
     def __init__(self, nazwa, NIP):
+        super().__init__()
         self.nazwa = nazwa
         self.saldo = 0
         self.validateNIP(NIP)
-
+        
     def validateNIP(self, NIP):
         if(len(NIP)==10 and NIP.isdigit()):
             self.NIP=NIP
