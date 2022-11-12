@@ -23,10 +23,8 @@ class TestCreateBankAccount(unittest.TestCase):
     def test_kod(self):
         #kod
         trzecie_konto= KontoOsobiste("Dariusztrzy", "Januszewskitrzy", "12325678999", "PROM_ABC")
-        self.assertEqual(trzecie_konto.saldo, 50, "Bledny kod promocyjny!")
 
         czwarte_konto= KontoOsobiste("Dariuszcztery", "Januszewskicztery", "12345678999", "PRddddM_ABC")
-        self.assertEqual(czwarte_konto.saldo, 0, "W przypadku błędnego kodu, saldo powinno się równać 0!")
 
     def test_pesel(self):
         #pesel
