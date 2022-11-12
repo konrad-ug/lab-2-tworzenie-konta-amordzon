@@ -9,7 +9,7 @@ class KontoOsobiste(Konto):
         self.check_prom(prom)
 
     def check_pesel(self,pesel):
-        if(len(pesel)!=11 or not pesel.isnumeric()):
+        if(len(pesel)!=11 or not pesel.isdigit()):
             self.pesel="Niepoprawny pesel!"
         else:
             self.pesel=pesel

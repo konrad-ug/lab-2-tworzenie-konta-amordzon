@@ -17,8 +17,8 @@ class TestCreateBankAccount(unittest.TestCase):
 
         self.assertEqual(len(pierwsze_konto.pesel), 11, "Nieprawidłowa długość peselu")
 
-        drugie_konto= KontoOsobiste("Dariuszdwa", "Januszewskidwa", "12345678999")
-        #self.assertEqual(drugie_konto.pesel, "12345678999", "Pesel nie zostal zapisany!")
+        drugie_konto = KontoOsobiste("Dariuszdwa", "Januszewskidwa", "122256789ab")
+        self.assertEqual(drugie_konto.pesel, "Niepoprawny pesel!", "Pesel nie ma wartości Niepoprawny pesel! jeżeli jest zły")
 
     def test_kod(self):
         #kod
