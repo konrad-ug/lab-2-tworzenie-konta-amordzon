@@ -46,5 +46,3 @@ class TestCreateBankAccount(unittest.TestCase):
         konto12.przelew_ekspresowy(100)
         self.assertEqual(konto12.saldo, 50, "Przy nieudanym przelewie powinno wynosic 50!")
         
-    def test_coverage(self):
-        pass

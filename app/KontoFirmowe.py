@@ -14,5 +14,8 @@ class KontoFirmowe(Konto):
 
     def przelew_ekspresowy(self, kwota):
         super().przelew_ekspresowy(kwota,5)
+    
+    def test(self):
+        pass
 
     
