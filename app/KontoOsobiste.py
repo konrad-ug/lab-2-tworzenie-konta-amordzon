@@ -1,3 +1,4 @@
+
 from .Konto import Konto
 
 class KontoOsobiste(Konto):
@@ -8,7 +9,6 @@ class KontoOsobiste(Konto):
         self.saldo = 0
         self.check_pesel(pesel)
         self.check_prom(prom)
-        self.historia=[]
 
     def check_pesel(self,pesel):
         if(len(pesel)!=11 or not pesel.isdigit()):
@@ -22,3 +22,10 @@ class KontoOsobiste(Konto):
 
     def przelew_ekspresowy(self, kwota):
         super().przelew_ekspresowy(kwota, 1)
+    
+    def zaciagnij_kredyt(self, kwota):
+        if(len(self.historia)>=5 and all([x > 0 for x in self.historia[:3]]) and sum(self.historia[:5])>kwota):
+            self.saldo+=kwota
+            return True
+        return False
+    
