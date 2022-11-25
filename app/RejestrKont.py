@@ -2,13 +2,13 @@ class RejestrKont:
     usersAccounts=[]
     
     @classmethod
-    def addAccountToArray(self, account):
-        self.usersAccounts.append(account)
+    def addAccountToArray(cls, account):
+        cls.usersAccounts.append(account)
     
     @classmethod
-    def findByPesel(self, pesel):
-        return next((x for x in self.usersAccounts if x.pesel == pesel), None)
+    def findByPesel(cls, pesel):
+        return next((x for x in cls.usersAccounts if x.pesel == pesel), None)
     
     @classmethod
-    def accountLength(self):
-        return len(self.usersAccounts)
+    def accountLength(cls):
+        return len(cls.usersAccounts)
