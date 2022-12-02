@@ -13,3 +13,7 @@ class RejestrKont:
     def accountLength(cls):
         return len(cls.usersAccounts)
     
+    @classmethod
+    def accountRemove(cls, pesel):
+        cls.usersAccounts=[x for x in cls.usersAccounts if x.pesel != pesel]
+        return cls.usersAccounts
