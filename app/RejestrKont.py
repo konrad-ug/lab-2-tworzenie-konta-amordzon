@@ -12,3 +12,4 @@ class RejestrKont:
     @classmethod
     def accountLength(cls):
         return len(cls.usersAccounts)
+    
