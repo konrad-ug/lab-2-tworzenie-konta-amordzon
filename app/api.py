@@ -9,6 +9,8 @@ app = Flask(__name__)
 def stworz_konto():
     dane = request.get_json()
     print(f"Request o stworzenie konta z danymi: {dane}")
+    if RejestrKont.findByPesel(dane["pesel"]) != None:
+        return jsonify("Ten pesel juz istnieje"), 400
     konto = KontoOsobiste(dane["imie"], dane["nazwisko"], dane["pesel"])
     RejestrKont.addAccountToArray(konto)
     return jsonify("Konto stworzone"), 201
@@ -31,6 +33,8 @@ def wyszukaj_konto_z_peselem(pesel):
 @app.route("/konta/konto/<pesel>", methods=['PUT'])
 def aktualizuj_konto_z_peselem(pesel):
     data = request.get_json()
+    if "pesel" in data and RejestrKont.findByPesel(data["pesel"]) != None:
+        return jsonify("Ten pesel juz istnieje"), 400
     konto = RejestrKont.accountUpdate(pesel, data)
     if(konto == None):
         return jsonify("Podany pesel nie istnieje!"), 200
