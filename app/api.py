@@ -18,7 +18,7 @@ def stworz_konto():
 def ile_kont():
     ile = RejestrKont.accountLength()
     print("Ilość kont: "+str(ile))
-    return jsonify("Ilość kont: "+str(ile)), 200
+    return jsonify(ile), 200
 
 
 @app.route("/konta/konto/<pesel>", methods=['GET'])
@@ -26,3 +26,20 @@ def wyszukaj_konto_z_peselem(pesel):
     konto = RejestrKont.findByPesel(pesel)
     print(f"Request o szukanie konta z peselem: {pesel}")
     return jsonify(imie=konto.imie, nazwisko=konto.nazwisko, pesel=konto.pesel, saldo=konto.saldo), 200
+
+
+@app.route("/konta/konto/<pesel>", methods=['PUT'])
+def aktualizuj_konto_z_peselem(pesel):
+    data = request.get_json()
+    konto = RejestrKont.accountUpdate(pesel, data)
+    if(konto == None):
+        return jsonify("Podany pesel nie istnieje!"), 200
+    return jsonify(imie=konto.imie, nazwisko=konto.nazwisko, pesel=konto.pesel, saldo=konto.saldo), 200
+
+
+@app.route("/konta/konto/<pesel>", methods=['DELETE'])
+def usun_konto_z_peselem(pesel):
+    konto = RejestrKont.accountRemove(pesel)
+    if(konto == None):
+        return jsonify("Podany pesel nie istnieje!"), 200
+    return jsonify("Delete zakonczony pomyslnie"), 200
